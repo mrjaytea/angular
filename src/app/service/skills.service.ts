@@ -16,6 +16,10 @@ export class SkillsService {
   getSkills(): Observable<Skills[]> {
     return this.http.get<Skills[]>(baseUrl + 'skills')
     .pipe(catchError(this.httpProcessmsgService.handleError));
+  }
 
+  getSkill(id: number): Observable<Skills> {
+    return this.http.get<Skills>(baseUrl + 'skills/' + id)
+    .pipe(catchError(this.httpProcessmsgService.handleError));
   }
 }

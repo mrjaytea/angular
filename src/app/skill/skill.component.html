@@ -1,0 +1,47 @@
+<div class="container" fxLayout = "column" fxLayoutGap="10px" *ngIf="skill">
+    <div fxFlex>
+        <div>
+            <h1>Skills</h1>
+            <hr>
+        </div>
+    </div>
+
+    <div fxFlex>
+        <mat-card>
+            <mat-card-header>
+              <img mat-card-avatar src="{{baseUrl + skill.image}}" />
+              <mat-card-title>{{skill.name}}</mat-card-title>
+              <br/>
+            </mat-card-header>
+            <mat-card-content>
+                <p matLine>
+                    <br/>
+                    Proficiency: 
+                </p>
+                <p matLine>
+                    <mat-progress-bar mode="determinate" value="{{skill.proficiency * 10}}" style="padding: 5px;"></mat-progress-bar>
+                </p>
+                <a href="{{baseUrl + skill.cert}}"><img src="{{baseUrl + skill.cert}}" width="100%"/></a>
+                <div style="text-align: center;">
+                    <p>(Click for full resolution)</p>
+                </div>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="!errMess && !skill"
+fxLayoutAlign="center center"
+>
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="errMess">
+    {{errmess}}
+</div>

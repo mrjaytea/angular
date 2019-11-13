@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutmeComponent } from './aboutme/aboutme.component';
 import { SkillsComponent } from './skills/skills.component';
+import { SkillComponent } from './skill/skill.component';
 import { QualificationsComponent } from './qualifications/qualifications.component';
 import { ChordfinderComponent } from './chordfinder/chordfinder.component';
 import baseUrl from './baseUrl';
@@ -33,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import 'hammerjs';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +42,11 @@ import 'hammerjs';
     HeaderComponent,
     FooterComponent,
     AboutmeComponent,
+    SkillComponent,
     SkillsComponent,
     QualificationsComponent,
-    ChordfinderComponent
+    ChordfinderComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,
