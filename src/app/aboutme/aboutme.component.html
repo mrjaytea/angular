@@ -1,0 +1,87 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="about">
+    <div fxFlex>
+        <div>
+            <h1>About Me</h1>
+            <hr>
+        </div>
+      </div>
+
+    <div fxFlex>
+        <div fxLayout="column" fxLayout.gt-sm="row">
+            <div fxFlex="60">
+                <h2>Self-Introduction</h2>
+                <p>
+                    A deligent individual who possesses an extreme desire to learn.
+                </p>
+
+                <p>
+                    A strong believer of <strong>"Teamwork makes dream work"</strong> and <strong>"There is no 'I' in the word 'team'."</strong> Also, in Chinese, 團結實是力量.
+                </p>
+            </div>
+
+            <div fxFlexOffset="10" fxFlex="30">
+                <br/>
+                <mat-card class="info-card">
+                    <mat-card-header class="info-card-header">
+                        <mat-card-title>Info Card</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="" alt="">
+                    <mat-card-content class="info-card-content">
+                        <h2>LAU Chi Pang</h2>
+                        <p>Basic Information</p>
+                        <p>
+                            Surname: {{about.surname}}
+                        </p>
+                        <p>
+                            Given Name: {{about.givenname}}
+                        </p>
+                        <p>
+                            Date of Birth: {{about.dob}}
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div fxLayout="column" fxLayout.gt-sm="row">
+            <div fxFlex="60">
+                <div>
+                    <h2>Hobbies</h2>
+                </div>
+                
+                <div>
+                    <mat-list>
+                        <mat-list-item *ngFor="let hobby of about.hobbies">
+                            <img matListAvatar src="{{baseUrl + hobby.image}}" alt="{{baseUrl + hobby.name}}">
+                            <h2 matLine> <strong>{{hobby.name}}</strong> </h2>
+                            <p matLine>
+                                <span> {{hobby.description}} </span>
+                            </p>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="!errmess && !about"
+fxLayoutAlign="center center"
+>
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="errmess">
+    {{errmess}}
+</div>

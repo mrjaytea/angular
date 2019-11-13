@@ -1,0 +1,46 @@
+<div class="container" fxLayout = "column" fxLayoutGap="10px" *ngIf="skills">
+    <div fxFlex>
+        <div>
+            <h1>Skills</h1>
+            <hr>
+        </div>
+    </div>
+
+    <div fxFlex>
+        <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="center center" >
+            <div fxFlex = "90">
+                <mat-list>
+                    <mat-list-item *ngFor="let skill of skills">
+                        <img matListAvatar src="{{baseUrl + skill.image}}" alt="{{baseUrl + skill.image}}" class="img" style="height: 150px; width: 150px; border-radius: 0 !important; object-fit: contain;">
+                        <h3 matLine><strong> {{skill.name}} </strong></h3>
+                        <br matLine/>
+                        <p matLine>
+                            Proficiency: 
+                        </p>
+                        <p matLine>
+                            <mat-progress-bar mode="determinate" value="{{skill.proficiency * 10}}" style="padding: 5px;"></mat-progress-bar>
+                        </p>
+                        <p matLine *ngIf="!skill.cert"> -- </p>
+                        <a matLine mat-button *ngIf="skill.cert" routerLink="{{skill.id}}" style="background-color: chocolate; margin: 5px;">More</a>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="!errmess && !skills"
+fxLayoutAlign="center center"
+>
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="errmess">
+    {{errmess}}
+</div>

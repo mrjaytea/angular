@@ -1,0 +1,21 @@
+.info-card{
+    padding: 0 !important;
+}
+.info-card-header{
+    background-color: #FF0000;
+    color: whitesmoke;
+    padding-top: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.info-card-content{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-line{
+    word-wrap: break-word;
+   white-space: pre-wrap;
+}

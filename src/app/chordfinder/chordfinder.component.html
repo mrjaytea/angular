@@ -1,0 +1,29 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="20px"
+>
+    <div fxFlex>
+        <div>
+            <h1>Chord Finder</h1>
+            <hr>
+        </div>
+    </div>
+
+    <div fxFlex>
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected">
+          <div *ngFor="let chord of chordnames">
+              <mat-option value="{{chord}}">{{chord}}</mat-option>
+          </div>  
+        </mat-select>
+      </mat-form-field>  
+    </div>
+
+    <div fxFlex style="text-align: center;">
+      <div *ngIf="selected">
+        <p>You selected: {{selected}} Chord</p>
+        <img src="{{baseUrl}}images/chords/{{selected}}.png" width="200px">
+      </div>  
+    </div>
+</div>

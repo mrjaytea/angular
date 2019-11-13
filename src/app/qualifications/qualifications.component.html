@@ -1,0 +1,46 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="20px"
+*ngIf="qualifications">
+    <div fxFlex>
+        <div>
+            <h1>Qualifications</h1>
+            <hr>
+        </div>
+      </div>
+
+    <div fxFlex>
+        <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutAlign="center center" style="padding-bottom: 50px;">
+            <div fxFlex="90">
+                <mat-grid-list cols="1" rowHeight="1:1" rowHeight="400px" gutterSize="50px">
+                    <mat-grid-tile *ngFor="let quali of qualifications">
+                        <img height="100px" src="{{baseUrl + quali.image}}" alt="{{quali.name}}">
+                        <mat-grid-tile-header>
+                            <h1> <strong>{{quali.name | uppercase}}</strong></h1>
+                            <p><strong>: {{quali.year}}</strong></p>
+                        </mat-grid-tile-header>
+                        <mat-grid-tile-footer>
+                            <p>{{quali.description}}</p>
+                        </mat-grid-tile-footer>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="!errmess && !qualifications"
+fxLayoutAlign="center center"
+>
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+*ngIf="errmess">
+    {{errmess}}
+</div>
