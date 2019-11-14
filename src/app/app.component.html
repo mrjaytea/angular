@@ -1,3 +1,27 @@
-<app-header></app-header>
-  <router-outlet></router-outlet>
+<app-header fxHide fxShow.gt-sm="true"></app-header>
+<mat-toolbar color="primary" fxShow="true" fxHide.gt-sm>
+      <button mat-button (click)="sidenav.toggle()">
+        <span class="fa fa-list fa-lg"></span>
+      </button>
+      <a mat-button routerLink='/' routerLinkActive='active'><span>Terry LAU's Page</span></a>
+      <span class="menu-spacer"></span>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a mat-list-item routerLink='/' routerLinkActive='active' (click)="sidenav.toggle()"><span class="fa fa-home fa-lg"></span> Home</a>
+        <a mat-list-item routerLink='/aboutme' routerLinkActive='active' (click)="sidenav.toggle()"><span class="fa fa-info fa-lg"></span> About Me</a>
+        <a mat-list-item routerLink='/qualifications' routerLinkActive='active' (click)="sidenav.toggle()"><span class="fa fa-check fa-lg"></span> Qualifications</a>
+        <a mat-list-item routerLink='/skills' routerLinkActive='active' (click)="sidenav.toggle()"><span class="fa fa-cog fa-lg"></span> Skills</a>
+        <a mat-list-item routerLink='/chordfinder' routerLinkActive='active' (click)="sidenav.toggle()"><span class="fa fa-music fa-lg"></span> Chord Finder</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="jumbotron" fxShow="true" fxHide.gt-sm>
+          <div class="container"><h1>Terry LAU's Angular Page</h1></div>
+      </div>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 <app-footer></app-footer>

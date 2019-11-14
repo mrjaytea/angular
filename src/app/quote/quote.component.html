@@ -1,0 +1,18 @@
+<mat-toolbar color='primary'>
+    My Favourite Quote
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<div mat-dialog-content>
+    <div style="padding-top: 5px; text-align: center;">
+        <img src="{{baseUrl}}/images/wblake.jpg" alt="William Blake" width="70%"/>
+    </div>
+    <blockquote>
+        <h3>He, who desires, but acts not, breeds pestilence.</h3>
+        <footer className="blockquote-footer">William Blake,
+            <cite> Proverbs of Hell, 1929</cite>
+        </footer>
+    </blockquote>
+    <button mat-button class="close-button" (click)="onDismiss()">Close</button>
+</div>

@@ -29,9 +29,11 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import 'hammerjs';
+import { QuoteComponent } from './quote/quote.component';
 
 
 
@@ -46,7 +48,8 @@ import 'hammerjs';
     SkillsComponent,
     QualificationsComponent,
     ChordfinderComponent,
-    SkillComponent
+    SkillComponent,
+    QuoteComponent
   ],
   imports: [
     BrowserModule,
@@ -64,9 +67,13 @@ import 'hammerjs';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatDialogModule
   ],
-
+  entryComponents:[
+    QuoteComponent
+  ],
   providers: [
     // Need to do in this way for const variable
     {provide: 'baseUrl', useValue: baseUrl}
